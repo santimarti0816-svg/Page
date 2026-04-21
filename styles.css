@@ -1,0 +1,82 @@
+/* 1. Importar fuentes externas (Ejemplo: Inter de Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* 2. Directivas de Tailwind (Descomenta estas líneas si estás compilando tu CSS con Node.js/PostCSS) */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
+
+/* 
+  Archivo de estilos personalizados 
+  Aquí puedes agregar CSS que sea difícil de manejar solo con las utilidades de Tailwind,
+  como animaciones complejas o fuentes externas específicas.
+*/
+
+:root {
+  /* 3. Variables CSS globales para mantener consistencia en elementos personalizados */
+  --color-primario: #2563eb; /* Azul */
+  --color-acento: #f59e0b; /* Ámbar */
+}
+
+/* ==========================================
+   Configuración Global y Scrollbar
+========================================== */
+body {
+  /* Establecemos la fuente importada como principal */
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  /* Permite que el scroll-smooth de Tailwind funcione de manera más fluida */
+  scroll-behavior: smooth;
+}
+
+/* Personalización de la barra de desplazamiento (Scrollbar) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4; /* Color cyan al pasar el mouse */
+}
+
+/* Color de selección de texto (cuando el usuario sombrea el texto) */
+::selection {
+  background: #06b6d4;
+  color: #ffffff;
+}
+
+/* ==========================================
+   Efectos y Animaciones Personalizadas
+========================================== */
+
+/* Botones con efecto Neón (usados en index.html) */
+.btn-neon {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.btn-neon:hover {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.6), 0 0 30px rgba(6, 182, 212, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Fondo oscuro animado para darle vida a la página entera */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-animated {
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #082f49, #0f172a);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
